@@ -35,19 +35,11 @@
 		}
 		$(document).ready(function(){			
 			listaUsuarios();
-			alert("teste");
 		
 			$("#sair").click(function() {
 
 											window.location.assign("//localhost:8081/index.html");
 										});
-			/*$("#deletaMsg").click(function() {
-				var url ="deletaMsg/";
-				$.getJSON(url, function(data) {
-					
-				}
-				
-			});*/
 			
 			
 			$("#excluir").click(function() {
@@ -89,8 +81,8 @@
 		</table>
 		<div class="jumbotron jumbotron-fluid">
     <div class="container">
-		<button id="sair" class="btn btn-primary btn-lg">SAIR</button>
-		<button id="deletaMsg" class="btn btn-primary btn-lg">Limpa Mensagens</button>
+		<button id="deletaUsuario" class="btn btn-primary btn-lg">Excluir</button>
+		<button id="sair" class="btn btn-primary btn-lg">Deleta mensagens</button>
 		</div>
     </div>
 				

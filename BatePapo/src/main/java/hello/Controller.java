@@ -72,11 +72,5 @@ public class Controller {
 			
 		});
 	}
-	public void deletaMsg() {
-		get("/deletaMsg/",(req, res)-> {
-			chatmodel.deletaMsg();
-			return "ok";
-		});
-	}
 	}
 		

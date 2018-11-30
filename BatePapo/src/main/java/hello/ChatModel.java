@@ -98,18 +98,6 @@ public class ChatModel {
 		usuarios.delete(this.buscaUsuario(email));
 		usuarios.commit();
 	}
-
-
-	public void deletaMsg() {
-		Query query = salas.query();
-		query.constrain(Sala.class);
-	    ObjectSet<Sala> allSalas = query.execute();
-		
-	    for(Sala sala:allSalas) {
-	    	salas.delete(sala);
-	    }
-	    salas.commit();
-	}
 	
 	
 }
