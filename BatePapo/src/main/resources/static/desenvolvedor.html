@@ -28,7 +28,7 @@
 					var itens = [];
 					checkbox= "<input type='checkbox' class='form-check-input' id='exampleCheck1'>";
 					$.each(data, function(i){								
-						itens.push("<tr> <td></td><td class='email'>"+ this.email +"</td><td>"+this.senha+"</td><td>"+ this.Dados.nome + "</td><td>"+ this.Dados.dataNasimento +"</td><td>"+this.Dados.cidade +"<a href='/deletaUsuario/"+this.email+"'> Excluir</a></td></tr>");							
+						itens.push("<tr> <td class='email'>"+ this.email +"</td><td>"+this.senha+"</td><td>"+ this.Dados.nome + "</td><td>"+ this.Dados.dataNasimento +"</td><td>"+this.Dados.cidade +"</td><td><a href='/deletaUsuario/"+this.email+"'> Excluir</a></td></tr>");							
 														});									
 					$("#dadosCarro").append(itens);						
 											});
@@ -40,19 +40,6 @@
 
 											window.location.assign("//localhost:8081/index.html");
 										});
-			
-			
-			$("#excluir").click(function() {
-					var email= $(this).parent().parent().find('.email');
-					alert("teste");
-					var url = "/deletaUsuario/"+this.email;
-
-								
-				
-
-
-										});
-			
 								});
 	</script>   
   </head>
@@ -77,12 +64,11 @@
 				<tbody id="dadosCarro"> 				
 					
 				</tbody> 
-				
 		</table>
 		<div class="jumbotron jumbotron-fluid">
     <div class="container">
-		<button id="deletaUsuario" class="btn btn-primary btn-lg">Excluir</button>
-		<button id="sair" class="btn btn-primary btn-lg">Deleta mensagens</button>
+
+		<button id="sair" class="btn btn-primary btn-lg">SAIR</button>
 		</div>
     </div>
 				
