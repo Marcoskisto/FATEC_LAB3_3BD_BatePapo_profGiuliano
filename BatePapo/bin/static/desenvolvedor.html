@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Desenvolvedor</title>    
+	<script src="js/jquery.js"></script>
+	<link href="css/bootstrap.min.css" rel=stylesheet>
+		
+	<script>
+	
+		//fun��o para pegar valor passado pela url
+		function getUrlVars(){
+			 var vars = [], hash;
+			 var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+			 for(var i = 0; i < hashes.length; i++)
+			 {
+			    hash = hashes[i].split('=');
+			    vars.push(hash[0]);
+			    vars[hash[0]] = hash[1];
+			 }
+			 return vars;
+		}		
+		function listaUsuarios(){
+			var nome = $( "#modelo option:selected" ).text();		
+			$("#dadosCarro").empty();					
+			var url = "/usuarios/";				
+			$.getJSON(url, function(data) {						
+					var itens = [];
+					checkbox= "<input type='checkbox' class='form-check-input' id='exampleCheck1'>";
+					$.each(data, function(i){								
+						itens.push("<tr> <td></td><td class='email'>"+ this.email +"</td><td>"+this.senha+"</td><td>"+ this.Dados.nome + "</td><td>"+ this.Dados.dataNasimento +"</td><td>"+this.Dados.cidade +"<a href='/deletaUsuario/"+this.email+"'> Excluir</a></td></tr>");							
+														});									
+					$("#dadosCarro").append(itens);						
+											});
+		}
+		$(document).ready(function(){			
+			listaUsuarios();
+			alert("teste");
+		
+			$("#sair").click(function() {
+
+											window.location.assign("//localhost:8081/index.html");
+										});
+			/*$("#deletaMsg").click(function() {
+				var url ="deletaMsg/";
+				$.getJSON(url, function(data) {
+					
+				}
+				
+			});*/
+			
+			
+			$("#excluir").click(function() {
+					var email= $(this).parent().parent().find('.email');
+					alert("teste");
+					var url = "/deletaUsuario/"+this.email;
+
+								
+				
+
+
+										});
+			
+								});
+	</script>   
+  </head>
+  <body>
+
+		
+			
+		
+		<table class="table table-hover"> 
+			<caption>Usuários cadastrados</caption>
+				<thead>
+					<tr> 
+						
+						<th>E-mail</th>
+						<th>Senha</th>
+						<th>Nome</th> 
+						<th>Data Nasc</th>
+						<th>Cidade</th>		 
+					</tr> 
+				</thead> 
+				
+				<tbody id="dadosCarro"> 				
+					
+				</tbody> 
+				
+		</table>
+		<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+		<button id="sair" class="btn btn-primary btn-lg">SAIR</button>
+		<button id="deletaMsg" class="btn btn-primary btn-lg">Limpa Mensagens</button>
+		</div>
+    </div>
+				
+  </body>
+  				
+				
+
+</html>

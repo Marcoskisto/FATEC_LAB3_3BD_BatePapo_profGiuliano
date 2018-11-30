@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>LOGIN</title>
+    
+	<script src="js/jquery.js"></script>	
+
+	<link href="css/bootstrap.min.css" rel=stylesheet>
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("#entrar").click(function() {
+				
+				var email = $("#email").val();
+				var senha = $("#senha").val();
+					
+				$("#dadosCarro").empty();
+					
+				var url = "/login/"+email+"/"+senha;
+				
+				$.getJSON(url, function(data) {
+						var itens = [];
+					if(data.email=="error") {
+						alert(data);							
+							itens.push("<tr> <td>LOGIN INCORRETO!!!</td></tr>");										
+						$("#dadosCarro").append(itens);
+						
+					}else {
+						window.location.assign("//localhost:8081/batepapo.html?login="+data.email);
+					}
+				});
+							
+			});
+		$("#cadastrar").click(function() {
+			window.location.assign("//localhost:8081/cadastro.html");
+		});
+		$("#desenvolvedor").click(function() {
+			var email = $("#email").val();
+			var senha = $("#senha").val();
+				
+			$("#dadosCarro").empty();
+				
+			var url = "/login/"+email+"/"+senha;
+			
+			$.getJSON(url, function(data) {
+					var itens = [];
+				if(data.email=="error") {
+					alert(data);							
+						itens.push("<tr> <td>LOGIN INCORRETO!!!</td></tr>");										
+					$("#dadosCarro").append(itens);
+					
+				}else {
+					window.location.assign("//localhost:8081/desenvolvedor.html?login="+data.email);
+				}
+			});
+		
+		});
+		});
+
+	</script>
+  </head>
+  <body>
+  		<div id="painelBusca">
+            
+		<div>
+			
+		</div>
+		<div class="col-md-3">
+			<label for "email">Email</label>
+	        <input id="email" class="form-control" type="text" placeholder="email">
+		
+			<label>Senha</label>
+			
+			<input id="senha" class="form-control" type="text" placeholder="senha">
+			</br></br>
+			<button id="entrar" class="btn btn-success col-md-offset-1">entrar</button>
+			</br></br>
+			<button id="cadastrar" class="btn btn-success col-md-offset-1">CADASTRAR</button>
+			</br></br>
+			<button id="desenvolvedor" class="btn btn-success col-md-offset-1">Desenvolvedor</button>
+			</br></br>
+		</div>
+					
+		<table class="table table-bordered">		
+			
+		<tbody id="dadosCarro"> 				
+					
+		</tbody> 
+</table>
+  </body>
+  
+</html>

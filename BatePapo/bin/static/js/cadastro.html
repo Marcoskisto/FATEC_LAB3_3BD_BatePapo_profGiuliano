@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cadastro</title>	
+    
+	<script src="js/jquery.js"></script>
+	
+	<link href="css/bootstrap.min.css" rel=stylesheet>	
+	
+	<script>
+		$(document).ready(function(){			
+
+			$("#cadastrar").click(function() {
+				
+				var email = $("#email").val();
+				var senha = $("#senha").val();
+				var nome = $("#nome").val();
+				var cidade = $("#cidade").val();
+				var data = $("#data").val();
+				$("#dadosCarro").empty();
+					
+				var url = "/cadastro/"+email+"/"+senha+"/"+nome+"/"+cidade+"/"+data;
+						
+				$.getJSON(url, function(data) {			
+				});
+				window.location.assign("//localhost:8081/");
+		});	
+	});
+				
+	</script>
+  </head>
+  <body>
+		<div class="col-md-3">
+		<div class="form-group">
+		  <label for="example-text-input" class="col-2 col-form-label">email</label>
+		  <div class="col-3">
+		  <input class="form-control" type="email" value="" id="email">
+		  </div>
+		</div>
+		<div class="form-group">
+		  <label for="example-text-input" class="col-2 col-form-label">Senha</label>
+		  <div class="col-3">
+		  <input class="form-control" type="password" value="" id="senha">
+		  </div>
+		</div>
+		<div class="form-group">
+		  <label for="example-text-input" class="col-2 col-form-label">Nome</label>
+		  <div class="col-3">
+		  <input class="form-control" type="text" value="" id="nome">
+		  </div>
+		</div>
+		<div class="form-group">
+		  <label for="example-text-input" class="col-2 col-form-label">Cidade</label>
+		  <div class="col-3">
+		  <input class="form-control" type="text" value="" id="cidade">
+		  </div>
+		</div>
+		<div class="form-group">
+		  <label for="example-text-input" class="col-2 col-form-label">Data de Nascimento</label>
+		  <div class="col-3">
+		  <input class="form-control" type="date" value="" id="data">
+		  </div>
+		
+		</div>
+		<button id="cadastrar" class="btn btn-success col-md-offset-5">Cadastrar</button>
+		
+		</div>
+
+  		<div id="painelBusca">
+		
+		</table>
+  </body>
+  
+</html>
